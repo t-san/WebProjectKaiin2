@@ -21,7 +21,7 @@ public class KaiinnService {
 
 
 
-		return kaiinn;
+		return bean;
 	}
 
 

@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.SearchBean;
+import service.KaiinnService;
+
 
 
 	/**
@@ -60,8 +63,12 @@ import javax.servlet.http.HttpServletResponse;
 			System.out.println("StartServletが実行されました。");
 			String inputNumStr=request.getParameter("id");
 			int inputNum=Integer.parseInt(inputNumStr);
-			int returnNum=0;
-			String KaiinnName="";
+
+			KaiinnService kserv=new KaiinnService();
+
+			SearchBean bean =kserv.search(inputNum);
+
+
 
 
 			//com.mysql.jdbc.Driver d= new com.mysql.jdbc.Driver();
@@ -71,11 +78,11 @@ import javax.servlet.http.HttpServletResponse;
 
 			//今日の日付の文字列をリクエストにセット キー名は「now」とする
 
-			request.setAttribute("id", String.valueOf(returnNum));
+			request.setAttribute("bean", bean);
 //			System.out.println(returnNum + ":をJSPに渡します。");
-			request.setAttribute("kaiinnName",KaiinnName);
 
-			RequestDispatcher disp = request.getRequestDispatcher("/kensakukekka.jsp");
+
+			RequestDispatcher disp = request.getRequestDispatcher("/search.jsp");
 			disp.forward(request, response);
 
 		}

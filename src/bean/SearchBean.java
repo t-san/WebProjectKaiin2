@@ -28,6 +28,10 @@ public class SearchBean
 	public void setRegistDate(Date registDate) {
 		this.registDate = registDate;
 	}
+	@Override
+	public String toString() {
+		return "id=" + id + ", name=" + name + ", registDate=" + registDate;
+	}
 
 
 }
