@@ -11,9 +11,14 @@
 	検索ID番号<input name="id" type="text" ><br>
 
 
-	<input type="submit" value="次の世界へ">
+	<input type="submit" value="検索">
 </form>
-
-
+<form method="POST" action="RegistServlet">
+登録情報を入力してください。<br>
+会員番号<input name="id" type="text" ><br>
+名前<input name="name" type="text" ><br>
+性別<input name="sex" type="radio" value="MAN" >男<input name="sex" type="radio" value="WOMAN" >女<br>
+<input type="submit" value="登録">
+</form>
 </body>
 </html>

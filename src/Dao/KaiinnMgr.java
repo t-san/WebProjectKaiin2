@@ -32,12 +32,12 @@ public class KaiinnMgr
 
 	private static final String GET_SQL =
 			"select "
-			+ "name, "
-			+ "registDate "
+			+ "name "
+			+ ",registDate "
 			+" ,sex "
-			+ "from "
+			+ " from "
 			+ " kaiinn "
-			+ "where "
+			+ " where "
 			+ " kaiinNo = ? ";
 
 	//-------------------------------
