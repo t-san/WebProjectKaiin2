@@ -4,10 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
+import domain.SexEnum;
 import vo.Kaiinn;
 
 
@@ -36,6 +34,7 @@ public class KaiinnMgr
 			"select "
 			+ "name, "
 			+ "registDate "
+			+" ,sex "
 			+ "from "
 			+ " kaiinn "
 			+ "where "
@@ -87,7 +86,8 @@ public class KaiinnMgr
 				k = new Kaiinn(
 						kaiinNo,
 						rset.getString(1),
-						rset.getDate(2)
+						rset.getDate(2),
+						SexEnum.valueOf(rset.getString(3))
 						);
 			}
 		}
@@ -119,34 +119,34 @@ public class KaiinnMgr
 	}
 
 	//-------------------------------
-	public Collection<Kaiinn> values()
-	{
-		List<Kaiinn>  list = new ArrayList<Kaiinn>();
-
-		try(
-				Connection con = Dao.getConnection();
-				PreparedStatement	stmt = con.prepareStatement(ALLGET_SQL);
-			)
-		{
-			/* ｓｑｌ実行 */
-			ResultSet rset = stmt.executeQuery();
-
-			while(rset.next())
-			{
-				Kaiinn k = new Kaiinn(
-						rset.getInt(1),
-						rset.getString(2),
-						rset.getDate(3)
-						);
-
-				list.add(k);
-			}
-		}
-		catch( ClassNotFoundException | SQLException e )
-		{
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-		return list;
-	}
+//	public Collection<Kaiinn> values()
+//	{
+//		List<Kaiinn>  list = new ArrayList<Kaiinn>();
+//
+//		try(
+//				Connection con = Dao.getConnection();
+//				PreparedStatement	stmt = con.prepareStatement(ALLGET_SQL);
+//			)
+//		{
+//			/* ｓｑｌ実行 */
+//			ResultSet rset = stmt.executeQuery();
+//
+//			while(rset.next())
+//			{
+//				Kaiinn k = new Kaiinn(
+//						rset.getInt(1),
+//						rset.getString(2),
+//						rset.getDate(3),
+//						);
+//
+//				list.add(k);
+//			}
+//		}
+//		catch( ClassNotFoundException | SQLException e )
+//		{
+//			e.printStackTrace();
+//			throw new RuntimeException(e);
+//		}
+//		return list;
+//	}
 }

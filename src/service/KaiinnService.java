@@ -18,6 +18,7 @@ public class KaiinnService {
 		bean.setId(kaiinn.getKaiinNo());
 		bean.setName(kaiinn.getName());
 		bean.setRegistDate(kaiinn.getRegistDate());
+		bean.setSex(kaiinn.getSex());
 
 
 
