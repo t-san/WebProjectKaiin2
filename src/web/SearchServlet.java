@@ -40,19 +40,18 @@ public class SearchServlet extends HttpServlet
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        System.out.println("SearchServletが実行されました。");
-        String inputNumStr = request.getParameter("id");
-        int inputNum = Integer.parseInt(inputNumStr);
+        System.out.println( "SearchServletが実行されました。" );
+        String inputNumStr = request.getParameter( "id" );
+        int inputNum = Integer.parseInt( inputNumStr );
 
         KaiinnService kserv = new KaiinnService();
 
-        SearchBean bean = kserv.search(inputNum);
+        SearchBean bean = kserv.search( inputNum );
 
+        request.setAttribute( "bean", bean );
 
-        request.setAttribute("bean", bean);
-
-        RequestDispatcher disp = request.getRequestDispatcher("/search.jsp");
-        disp.forward(request, response);
+        RequestDispatcher disp = request.getRequestDispatcher( "/search.jsp" );
+        disp.forward( request, response );
 
     }
 

@@ -12,7 +12,7 @@
 <br>
 会員番号：<input name="id" type="text" ><br>
 名前　　：<input name="name" type="text" ><br>
-性別　　：<input name="sex" type="radio" value="MAN" >男<input name="sex" type="radio" value="WOMAN" >女<br>
+性別　　：<input name="sex" type="radio" checked="checked" value="MAN" >男<input name="sex" type="radio" value="WOMAN" >女<br>
 <input type="submit" value="登録">
 </form>
 
@@ -22,11 +22,11 @@
 <form  method="POST" action="StartServlet">
 検索する会員IDを入力してください。<br>
 <br>	検索ID番号：<input name="id" type="text" ><br>
-	<input type="submit" value="検索">
+  <input type="submit" value="検索">
 </form>
 
 <form  method="POST" action="ListOutServlet">
-	<input type="submit" value="リスト表示">
+  <input type="submit" value="リスト表示">
 </form>
 
 </body>
