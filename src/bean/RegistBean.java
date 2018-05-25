@@ -1,24 +1,17 @@
 package bean;
 
-import java.util.Date;
-
-import domain.SexEnum;
-
+//登録bean
 public class RegistBean
 {
-	private int id;
-	private String name;
-	private Date registDate;
-	private SexEnum sex;
 	//TODO ListOutBeanを追加する
+	private ListOutBean list;
 
 	public RegistBean()
 	{
 		super();
 	}
 
-
-	public int getId()
+	/*public int getId()
 	{
 		return id;
 	}
@@ -56,12 +49,22 @@ public class RegistBean
 	public void setSex(SexEnum sex)
 	{
 		this.sex = sex;
-	}
-	@Override
-	public String toString()
+	}*/
+
+	public ListOutBean getList()
 	{
-		return "RegistBean [id=" + id + ", name=" + name + ", registDate=" + registDate + ", sex=" + sex + "]";
+		return list;
 	}
 
+	public void setList(ListOutBean list)
+	{
+		this.list = list;
+	}
+
+	//@Override
+	/*public String toString()
+	{
+		return "RegistBean [id=" + id + ", name=" + name + ", registDate=" + registDate + ", sex=" + sex + "]";
+	}*/
 
 }

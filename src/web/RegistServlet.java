@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.RegistBean;
+import domain.SexEnum;
+import service.KaiinnService;
+
 /**
  * Servlet implementation class RegistServlet
  */
@@ -27,8 +31,15 @@ public class RegistServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("SearchServletが実行されました。");
+		String inputNumStr = request.getParameter("id");
+		String inputNameStr = request.getParameter("name");
+		String inputSexStr = request.getParameter("sex");
+		int inputNum = Integer.parseInt(inputNumStr);
+
+		KaiinnService kserv = new KaiinnService();
+
+		RegistBean bean = kserv.regist(inputNum,inputNameStr,SexEnum.valueOf("inputSexStr"));
 	}
 
 	/**

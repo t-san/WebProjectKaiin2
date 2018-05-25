@@ -40,7 +40,7 @@ public class SearchServlet extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		System.out.println("StartServletが実行されました。");
+		System.out.println("SearchServletが実行されました。");
 		String inputNumStr = request.getParameter("id");
 		int inputNum = Integer.parseInt(inputNumStr);
 
