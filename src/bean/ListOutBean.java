@@ -5,20 +5,20 @@ import java.util.List;
 //会員リストbean
 public class ListOutBean
 {
-	private List<KaiinLineBean> line;
+    private List<KaiinLineBean> line;
 
-	public ListOutBean()
-	{
-	}
+    public ListOutBean()
+    {
+    }
 
-	public List<KaiinLineBean> getLine()
-	{
-		return line;
-	}
+    public List<KaiinLineBean> getLine()
+    {
+        return line;
+    }
 
-	public void setLine(List<KaiinLineBean> line)
-	{
-		this.line = line;
-	}
+    public void setLine(List<KaiinLineBean> line)
+    {
+        this.line = line;
+    }
 
 }

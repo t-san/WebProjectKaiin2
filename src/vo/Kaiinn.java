@@ -32,18 +32,18 @@ public	class Kaiinn
 
   public SexEnum getSex()
 {
-	return sex;
+    return sex;
 }
 public int getKaiinNo() {
-	return kaiinNo;
+    return kaiinNo;
   }
 
   public String getName() {
-	return name;
+    return name;
   }
 
   public Date getRegistDate() {
-	return registDate;
+    return registDate;
   }
 
   //保持しているデータを文字列化して出力する
