@@ -48,14 +48,8 @@ public class SearchServlet extends HttpServlet
 
 		SearchBean bean = kserv.search(inputNum);
 
-		//com.mysql.jdbc.Driver d= new com.mysql.jdbc.Driver();
-		//com.mysql.jdbc.JDBC4Connection c = new com.mysql.jdbc.JDBC4Connection();
-		//接続の実行とコネクションオブジェクトの取得
-
-		//今日の日付の文字列をリクエストにセット キー名は「now」とする
 
 		request.setAttribute("bean", bean);
-		//			System.out.println(returnNum + ":をJSPに渡します。");
 
 		RequestDispatcher disp = request.getRequestDispatcher("/search.jsp");
 		disp.forward(request, response);
