@@ -4,30 +4,46 @@
 <title>BeanStartWebApp2</title>
 </head>
 <body>
-　会員登録アプリ
+  会員登録アプリ
 
-<!-- 登録フォーム -->
-<form method="POST" action="RegistServlet">
-登録情報を入力してください。<br>
-<br>
-会員番号：<input name="id" type="text" ><br>
-名前　　：<input name="name" type="text" ><br>
-性別　　：<input name="sex" type="radio" checked="checked" value="MAN" >男<input name="sex" type="radio" value="WOMAN" >女<br>
-<input type="submit" value="登録">
-</form>
+  <!-- 登録フォーム -->
+  <form method="POST" action="RegistServlet">
+    登録情報を入力してください。<br> <br>
+    <table>
+      <tr>
+        <td>会員ID</td>
+        <td><input name="id" type="text"></td>
+      </tr>
+      <tr>
+        <td>名前</td>
+        <td><input name="name" type="text"></td>
+      </tr>
+      <tr>
+        <td>性別</td>
+        <td><input name="sex" type="radio" checked="checked"
+          value="MAN">男<input name="sex" type="radio" value="WOMAN">女
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="登録">
+  </form>
 
-<br>
+  <br>
 
-<!-- 検索フォーム -->
-<form  method="POST" action="StartServlet">
-検索する会員IDを入力してください。<br>
-<br>	検索ID番号：<input name="id" type="text" ><br>
-  <input type="submit" value="検索">
-</form>
+  <!-- 検索フォーム -->
+  <form method="POST" action="StartServlet">
+    検索する会員IDを入力してください。<br> <br> 検索ID番号：<input name="id"
+      type="text"><br> <input type="submit" value="検索">
+  </form>
 
-<form  method="POST" action="ListOutServlet">
-  <input type="submit" value="リスト表示">
-</form>
+  <form method="POST" action="ListOutServlet">
+    <input type="submit" value="リスト表示">
+  </form>
+
+  <br>
+  <form method="POST" action="EndServlet">
+    <input type="submit" value="終了">
+  </form>
 
 </body>
 </html>

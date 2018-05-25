@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>BeanStartWebApp2</title>
+<title>登録</title>
 </head>
 <body>
  登録しました。<br><br><br>
@@ -28,7 +28,7 @@
 </table>
 
 <form  action="index.html">
-	<input type="submit" value="戻る">
+  <input type="submit" value="戻る">
 </form>
 
 

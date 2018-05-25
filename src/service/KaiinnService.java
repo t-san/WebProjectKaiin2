@@ -29,11 +29,18 @@ public class KaiinnService
             Kaiinn kaiinn = kmgr.get( id );
 
             SearchBean bean = new SearchBean();
-
+            if(kaiinn != null) {
             bean.setId( kaiinn.getKaiinNo() );
             bean.setName( kaiinn.getName() );
             bean.setRegistDate( kaiinn.getRegistDate() );
             bean.setSex( kaiinn.getSex() );
+            bean.setExist( true );
+            }
+
+            if(kaiinn == null) {
+                bean.setExist( false );
+                bean.setMessage("該当するIDの会員は存在しません。");
+            }
             return bean;
         } catch (ClassNotFoundException | SQLException e)
         {

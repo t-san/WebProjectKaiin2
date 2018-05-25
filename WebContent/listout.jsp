@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>会員リスト</title>
 </head>
 <body>
 <table>
@@ -26,7 +26,7 @@
 </table>
 <br>
 <form  action="index.html">
-	<input type="submit" value="戻る">
+  <input type="submit" value="戻る">
 </form>
 </body>
 </html>
