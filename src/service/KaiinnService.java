@@ -29,17 +29,19 @@ public class KaiinnService
             Kaiinn kaiinn = kmgr.get( id );
 
             SearchBean bean = new SearchBean();
-            if(kaiinn != null) {
-            bean.setId( kaiinn.getKaiinNo() );
-            bean.setName( kaiinn.getName() );
-            bean.setRegistDate( kaiinn.getRegistDate() );
-            bean.setSex( kaiinn.getSex() );
-            bean.setExist( true );
+            if (kaiinn != null)
+            {
+                bean.setId( kaiinn.getKaiinNo() );
+                bean.setName( kaiinn.getName() );
+                bean.setRegistDate( kaiinn.getRegistDate() );
+                bean.setSex( kaiinn.getSex() );
+                bean.setExist( true );
             }
 
-            if(kaiinn == null) {
+            if (kaiinn == null)
+            {
                 bean.setExist( false );
-                bean.setMessage("該当するIDの会員は存在しません。");
+                bean.setMessage( "該当するIDの会員は存在しません。" );
             }
             return bean;
         } catch (ClassNotFoundException | SQLException e)
@@ -79,10 +81,10 @@ public class KaiinnService
             KaiinnMgr kmgr = new KaiinnMgr( con );
             //SQL実行結果
             Collection<Kaiinn> list = kmgr.values();
-            //
             List<KaiinLineBean> listBean = new ArrayList<KaiinLineBean>();
-            //listBean
-            for (Kaiinn k :list) {
+            //SQL実行結果をbeanにセットするlistBeanに移す
+            for (Kaiinn k : list)
+            {
                 KaiinLineBean kaiinBean = new KaiinLineBean();
                 kaiinBean.setKaiinNo( k.getKaiinNo() );
                 kaiinBean.setName( k.getName() );

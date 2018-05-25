@@ -3,7 +3,6 @@ package bean;
 //登録bean
 public class RegistBean
 {
-    //TODO ListOutBeanを追加する
     private ListOutBean list;
 
     public RegistBean()

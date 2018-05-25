@@ -41,6 +41,7 @@ public class SearchServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         System.out.println( "SearchServletが実行されました。" );
+        //TODO 入力が数値か確認する処理
         String inputNumStr = request.getParameter( "id" );
         int inputNum = Integer.parseInt( inputNumStr );
 
@@ -49,7 +50,7 @@ public class SearchServlet extends HttpServlet
         SearchBean bean = kserv.search( inputNum );
 
         request.setAttribute( "bean", bean );
-
+        //jspへ遷移
         RequestDispatcher disp = request.getRequestDispatcher( "/search.jsp" );
         disp.forward( request, response );
 

@@ -15,7 +15,12 @@
  <%} %>
 
 <%if(!bean.isExist()){ %>
-<%=bean.getMessage(  )%>
+<%=bean.getMessage()%>
 <% }%>
+
+<br>
+<form  action="index.html">
+  <input type="submit" value="戻る">
+</form>
 </body>
 </html>

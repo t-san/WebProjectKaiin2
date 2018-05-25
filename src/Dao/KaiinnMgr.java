@@ -56,7 +56,7 @@ public class KaiinnMgr extends Dao
             /* Statementの作成 */
             stmt.setInt( 1, k.getKaiinNo() );
             stmt.setString( 2, k.getName() );
-            stmt.setDate( 3, convertToSqlDate(k.getRegistDate()) );
+            stmt.setDate( 3, convertToSqlDate( k.getRegistDate() ) );
             stmt.setString( 4, k.getSex().name() );
             /* ｓｑｌ実行 */
             int numCount = stmt.executeUpdate();
@@ -95,32 +95,29 @@ public class KaiinnMgr extends Dao
     }
 
     //-------------------------------
-        public Collection<Kaiinn> values()throws SQLException
+    public Collection<Kaiinn> values() throws SQLException
+    {
+        List<Kaiinn> list = new ArrayList<Kaiinn>();
+        try (
+                PreparedStatement stmt = con.prepareStatement( ALLGET_SQL );)
         {
-            List<Kaiinn>  list = new ArrayList<Kaiinn>();
-            try(
-                    PreparedStatement	stmt = con.prepareStatement(ALLGET_SQL);
-                )
-            {
-                /* ｓｑｌ実行 */
-                ResultSet rset = stmt.executeQuery();
+            /* ｓｑｌ実行 */
+            ResultSet rset = stmt.executeQuery();
 
-                while(rset.next())
-                {
-                    Kaiinn k = new Kaiinn(
-                            rset.getInt(1),
-                            rset.getString(2),
-                            rset.getDate(3),
-                            SexEnum.valueOf( rset.getString( 4 ) )
-                            );
-
-                    list.add(k);
-                }
-            }
-            catch(SQLException e )
+            while (rset.next())
             {
-                throw e;
+                Kaiinn k = new Kaiinn(
+                        rset.getInt( 1 ),
+                        rset.getString( 2 ),
+                        rset.getDate( 3 ),
+                        SexEnum.valueOf( rset.getString( 4 ) ) );
+
+                list.add( k );
             }
-            return list;
+        } catch (SQLException e)
+        {
+            throw e;
         }
+        return list;
+    }
 }

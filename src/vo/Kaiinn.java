@@ -50,13 +50,4 @@ public class Kaiinn
     {
         return registDate;
     }
-
-    //保持しているデータを文字列化して出力する
-    public String toString()
-    {
-        return ("会員番号：" + this.kaiinNo
-                + ", 氏名：" + this.name
-                + ", 登録日時：" + this.registDate.toString());
-    }
-
 }
