@@ -10,7 +10,23 @@
 </head>
 <body>
  登録しました。<br>
- <%=bean.toString() %>
+ <table>
+<tr>
+ <td>会員ID </td>
+ <td>名前 </td>
+ <td> 登録年月日 </td>
+  <td>性別 </td>
+</tr>
+<% for( bean.KaiinLineBean rb: bean.getList().getLine() ){%>
+<tr>
+ <td> <%=rb.getKaiinNo(  ) %> </td>
+ <td> <%=rb.getName(  ) %> </td>
+ <td> <%=rb.getRegistDate(  ) %> </td>
+ <td> <%=rb.getSex().name(  ) %> </td>
+</tr>
+<%}%>
+</table>
+
 
 </body>
 </html>

@@ -1,10 +1,12 @@
 package Dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import domain.SexEnum;
 import vo.Kaiinn;
@@ -18,7 +20,7 @@ public class KaiinnMgr extends Dao
 		super( con );
 	}
 
-	private static final String PUT_SQL = "INSERT INTO kaiinn " +
+	private static final String PUT_SQL = "INSERT INTO kaiin " +
 			"( " +
 			"kaiinNo, " +
 			"name, " +
@@ -29,16 +31,17 @@ public class KaiinnMgr extends Dao
 	private static final String ALLGET_SQL = "select "
 			+ "kaiinNo, "
 			+ "name, "
-			+ "registDate "
+			+ "registDate, "
+			+ "sex "
 			+ "from "
-			+ " kaiinn";
+			+ " kaiin";
 
 	private static final String GET_SQL = "select "
 			+ "name "
 			+ ",registDate "
 			+ " ,sex "
 			+ " from "
-			+ " kaiinn "
+			+ " kaiin "
 			+ " where "
 			+ " kaiinNo = ? ";
 
@@ -49,17 +52,16 @@ public class KaiinnMgr extends Dao
 		try (
 				PreparedStatement stmt = con.prepareStatement( PUT_SQL );)
 		{
-
+			//SexEnum sex =k.getSex();
 			/* Statementの作成 */
 			stmt.setInt( 1, k.getKaiinNo() );
 			stmt.setString( 2, k.getName() );
-			stmt.setDate( 3, (Date) k.getRegistDate() );
-
+			stmt.setDate( 3, convertToSqlDate(k.getRegistDate()) );
+			stmt.setString( 4, k.getSex().name() );
 			/* ｓｑｌ実行 */
 			int numCount = stmt.executeUpdate();
 		} catch (SQLException e)
 		{
-
 			throw e;
 		}
 	}
@@ -93,34 +95,32 @@ public class KaiinnMgr extends Dao
 	}
 
 	//-------------------------------
-	//	public Collection<Kaiinn> values()
-	//	{
-	//		List<Kaiinn>  list = new ArrayList<Kaiinn>();
-	//
-	//		try(
-	//				Connection con = Dao.getConnection();
-	//				PreparedStatement	stmt = con.prepareStatement(ALLGET_SQL);
-	//			)
-	//		{
-	//			/* ｓｑｌ実行 */
-	//			ResultSet rset = stmt.executeQuery();
-	//
-	//			while(rset.next())
-	//			{
-	//				Kaiinn k = new Kaiinn(
-	//						rset.getInt(1),
-	//						rset.getString(2),
-	//						rset.getDate(3),
-	//						);
-	//
-	//				list.add(k);
-	//			}
-	//		}
-	//		catch( ClassNotFoundException | SQLException e )
-	//		{
-	//			e.printStackTrace();
-	//			throw new RuntimeException(e);
-	//		}
-	//		return list;
-	//	}
+		public Collection<Kaiinn> values()throws SQLException
+		{
+			List<Kaiinn>  list = new ArrayList<Kaiinn>();
+			try(
+					PreparedStatement	stmt = con.prepareStatement(ALLGET_SQL);
+				)
+			{
+				/* ｓｑｌ実行 */
+				ResultSet rset = stmt.executeQuery();
+
+				while(rset.next())
+				{
+					Kaiinn k = new Kaiinn(
+							rset.getInt(1),
+							rset.getString(2),
+							rset.getDate(3),
+							SexEnum.valueOf( rset.getString( 4 ) )
+							);
+
+					list.add(k);
+				}
+			}
+			catch(SQLException e )
+			{
+				throw e;
+			}
+			return list;
+		}
 }
