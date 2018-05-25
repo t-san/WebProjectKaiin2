@@ -9,7 +9,7 @@
 <title>BeanStartWebApp2</title>
 </head>
 <body>
- 登録しました。<br>
+ 登録しました。<br><br><br>
  <table>
 <tr>
  <td>会員ID </td>
@@ -26,6 +26,10 @@
 </tr>
 <%}%>
 </table>
+
+<form  action="index.html">
+	<input type="submit" value="戻る">
+</form>
 
 
 </body>
